@@ -1,0 +1,32 @@
+pipeline{
+    agent any
+    stages{
+        stage("code checkout"){
+            when{
+                branch "develop"
+            }
+            steps{
+                echo "Git checkout successful"
+            }
+        }
+        stages{
+        stage("maven build"){
+            when{
+                branch "test"
+            }
+            steps{
+                echo "maven build successful"
+            }
+        }
+        stages{
+        stage("tomcat deployment"){
+            when{
+                branch "main"
+            }
+            steps{
+                echo " tomcat successful"
+                
+            }
+        }
+    }
+}
